@@ -484,3 +484,22 @@ button.burger:after {
 
     color: #007fff;
 }
+
+.navbar-default .navbar-toggle {
+    float: left;
+    border: none;
+}
+
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #007fff;
+}
+
+
+#top-logo {
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -26px;
+}
