@@ -323,6 +323,10 @@ button.burger:after {
     font-size: 0;
 }
 
+.about-item h4 {
+    cursor: pointer;
+}
+
 .about-brands ul {
     display: -webkit-box;
     display: -ms-flexbox;
