@@ -26,5 +26,22 @@ $(document).ready(function(){
     });
     
 
-    
+    //Завдання 4
+
+    $('.social-list a').click(function(e){
+        
+        var answer = parseInt(prompt("Please, enter secret number to visit a link"));
+        var param = $(this).data('checknum');
+        if(answer != param){
+            alert("Sorry, wrong secret number!");
+            e.preventDefault();
+
+        }
+        
+
+    });
+
+
+
+
 });
