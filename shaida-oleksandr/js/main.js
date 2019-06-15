@@ -10,11 +10,21 @@ $(document).ready(function(){
 
     //Завдання 2
     var $page = $('html, body');
-    $('a[href*="#"]').click(function() {
+    $('.header a').click(function() {
         $page.animate({
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 800);
         return false;
     });
+
+    //Завдання 3
+
+    $('.works-item a').click(function() {
+        // $(this).parent().parent().parent().find('img').toggleClass('invisible');
+        $(this).parents('.works-item').find('img').toggleClass('invisible');
+        $(this).toggleClass('text-danger');
+    });
+    
+
     
 });
