@@ -41,6 +41,14 @@ $(document).ready(function(){
 
     });
 
+    //Завдання 5
+
+    $('.about-item > h4').click(function(){
+
+        $(this).siblings('p').slideToggle(200);
+
+    });
+
 
 
 
