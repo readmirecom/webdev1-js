@@ -32,8 +32,8 @@ $(document).ready(function(){
 	$('.works-item ').on('click','a',function(event){
 		
 
-		$(this).parent().parent().parent().children('img').addClass('invisible');
-		$(this).addClass('text-danger');
+		$(this).parent().parent().parent().children('img').toggleClass('invisible');
+		$(this).toggleClass('text-danger');
 	});
 });
 
