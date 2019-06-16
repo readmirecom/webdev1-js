@@ -1,11 +1,11 @@
 //1. Вивід кількості дочірніх елементів
 
-(document).ready(function(){
-    var dump = $("body>section");
-    for(let i = 0; i < dump.length; i++){
-        console.log("section #"+ dump[i].getAttribute("id") + " have DIVs: " + stack[i].getElementsByTagName('div').length);
-    }
-});
+	(document).ready(function(){
+    	var dump = $("body>section");
+    	for(let i = 0; i < dump.length; i++){
+        	console.log("section #"+ dump[i].getAttribute("id") + " have DIVs: " + stack[i].getElementsByTagName('div').length);
+    	}
+	});
 
 //2. Smooth-scroll навігація
 
@@ -24,5 +24,13 @@
     $(this).addClass('text-danger');
   	});
   	
+//4. Перевірка вводу від користувача
 
+	$('.social-list a').click(function(e){
+        var snum = parseInt(prompt("Please, enter secret number to visit a link"));
+        var check = $(this).data('checknum');
+        if(snum != check){
+            alert("Sorry, wrong secret number!");
+            e.preventDefault();
+        }
 
