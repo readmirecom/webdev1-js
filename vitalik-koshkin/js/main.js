@@ -34,3 +34,8 @@
             e.preventDefault();
         }
 
+//5. Згортання параграфа по кліку на заголовок
+
+	$('.about-item').on('click','h4',function(event){
+    	$(this).next('p').slideToggle(200);
+  	});
