@@ -17,3 +17,12 @@
         return false;
     });
     
+//3. Приховування картинки і зміна кольорів
+
+  	$('.works-item ').on('click','a',function(event){
+    $(this).parent().parent().parent().children('img').addClass('invisible');
+    $(this).addClass('text-danger');
+  	});
+  	
+
+
