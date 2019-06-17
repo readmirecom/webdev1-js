@@ -38,3 +38,24 @@
 	$('.about-item').on('click','h4',function(event){
 		$(this).next('p').slideToggle(200);
 	});
+
+	//Task 6
+	$('.contacts-form').submit(function(){
+		var $form = $(this);
+		if ($form.find("input[name=name]").val().length < 4) {
+			alert('Error: name should be at least 4 letters long');
+			return false;
+		}
+		if ($form.find("input[name=email]").val().match(/@mail.ru/)) {
+			alert('Error: Sorry, mail.ru is still blocked in Ukraine');
+			return false;
+		}
+		if ($form.find("textarea[name=text]").val().length < 10) {
+			alert('Error: message should be at least 10 letters long');
+			return false;
+		}
+		$.post(
+			$form.attr("action"), 
+			$form.serialize() 
+			);
+	});
