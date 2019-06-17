@@ -23,13 +23,18 @@
 
 	//Task 4
 	$(document).ready(function(){
-	$('.social-list').on('click','a',function(event){
-		let numberKey = prompt('Please, enter secret number to visit a link');
-		let data = $(this).attr('data-checknum');
-		console.log(data);
-		if(numberKey!==data){
-			alert('Sorry, wrong secret number!');
-			event.preventDefault();
-		}
+		$('.social-list').on('click','a',function(event){
+			let numberKey = prompt('Please, enter secret number to visit a link');
+			let data = $(this).attr('data-checknum');
+			console.log(data);
+			if(numberKey!==data){
+				alert('Sorry, wrong secret number!');
+				event.preventDefault();
+			}
+		});
 	});
-});
+
+	//Task 5
+	$('.about-item').on('click','h4',function(event){
+		$(this).next('p').slideToggle(200);
+	});
