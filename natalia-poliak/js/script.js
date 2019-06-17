@@ -1,10 +1,12 @@
 $(function (){
 
-    console.log($('section>div').length)
+    // console.log($('section>div').length)
 
-    // var count = $('section>div').size();
-    // alert('section #id_attr have DIVs:');
+    let element = $("body>section");
 
+    for(let i = 0; i < element.length; i++){
+        console.log("section "+ element[i].getAttribute("id") + " have DIVs: " + element[i].getElementsByTagName('div').length);
+    };
 
     $(".wor").click(function () {
         $('html, body').animate({
@@ -30,13 +32,14 @@ $(function (){
         }, 800);
     });
 
+    $('.works-item a').click(function() {
+        $(this).parents('.works-item').find('img').toggleClass('invisible');
+        $(this).toggleClass('text-danger');
+    });
 
-$('.works-item_text').click(function () {
-    $('.works-item').animate
-    {
-        opacity:0;
-    }
-});
+    // $(".works-item_text a").click(function() {
+    //     $(this).addClass(".colo");
+    // });
 
     $('.click1').click(function(){
             $('div.click2>p').slideDown(200);
@@ -70,50 +73,31 @@ $('.works-item_text').click(function () {
             }
         );
 
+    $('.contacts-form').submit(function(){
 
-$()
-    $('.contacts-form').validate({
-        rules: {
-            name: {
-                required: true,
-                minlength: 4
-            },
-            email: {
-                required: true,
-                email: true
-            },
-            text: {
-                required: true,
-                minlength: 10
-            }
-        },
-        messages: {
-            name: {
-                minlength: "Error: name should be at least 4 letters long"
-            },
-            email: {
-                required: "Вкажіть, будь ласка, вашу ел. адресу",
-                email: "Ваш email має бути наступного формату: name@domain.com"
-            },
-            text: {
-                minlength: "Error: message should  be at least 10 letters long"
-            }
-        }
-    });
+        var $form = $(this);
 
+        if ($form.find("input[name=name]").val().length < 4) {
 
-    function validateEmail(){
-        if(email!='@mail.ru')
-        {
-            return true;
-        }
-        else
-        {
-            alert('Error: Sorry, mail.ru is still  blocked in Ukraine');
+            alert('Error: name should be at least 4 letters long');
             return false;
         }
-    }
+        if ($form.find("input[name=email]").val().match(/@mail.ru/)) {
 
+            alert('Error: Sorry, mail.ru is still blocked in Ukraine');
+            return false;
+        }
+        if ($form.find("textarea[name=text]").val().length < 10) {
+
+            alert('Error: message should be at least 10 letters long');
+            return false;
+        }
+
+        $.post(
+            $form.attr("action"),
+            $form.serialize()
+        );
+    });
 
     $('.mod').click(function () {
         $('.modal').addClass('modal-show')
@@ -122,8 +106,6 @@ $()
     $('.close-m').click(function () {
         $('.modal').removeClass('modal-show')
     });
-
-
 
 
     });
