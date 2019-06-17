@@ -1,0 +1,1 @@
+JS/jQuery task by Olexandr Dudar
